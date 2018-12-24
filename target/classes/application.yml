@@ -1,0 +1,23 @@
+management:
+  endpoints:
+    web:
+      base-path: /manage
+      expose: "*"
+
+server:
+  servlet:
+    context-path: /v1
+  port: 8119
+
+commentx:
+  couchbase:
+    bootstrap-hosts:
+    - localhost
+    bucket:
+      name: default
+      password: ""
+      persist-factor: one
+    sslEnabled: false
+    connectionTimeout: 1000
+    keystorePath: "{user.home}/.keystore"
+    keystorePassword: "xxxxx"
