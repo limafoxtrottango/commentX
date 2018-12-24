@@ -24,12 +24,25 @@ public class NewCommentController {
 
     Observable.just(newCommentStream)
         .map(
-            a ->
-                NewCommentStream.builder()
+            a -> {
+              if (newCommentStream.getParentContent() != null) {
+                return NewCommentStream.builder()
                     .parentId(StringUtils.getCRC32Hash(a.getParentContent()))
+                    .parentContent(a.getParentContent())
                     .pageURIHash(StringUtils.getCRC32Hash(a.getPageURI()))
+                    .content(a.getContent())
                     .id(StringUtils.getCRC32Hash(a.getContent()))
-                    .build())
+                    .build();
+              } else {
+                return NewCommentStream.builder()
+                    .parentId(null)
+                    .parentContent(null)
+                    .pageURIHash(StringUtils.getCRC32Hash(a.getPageURI()))
+                    .content(a.getContent())
+                    .id(StringUtils.getCRC32Hash(a.getContent()))
+                    .build();
+              }
+            })
         .subscribeOn(Schedulers.io())
         .flatMap(a -> newCommentHandler.persistComment(a))
         .subscribe(
