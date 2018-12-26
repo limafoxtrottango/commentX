@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d3fd0f7f-a669-41d0-9054-08f15c6ecefe" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/connector/couchbase/CouchbaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/connector/couchbase/CouchbaseConnector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/newcomment/NewCommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newcomment/NewCommentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/newcomment/NewCommentHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/newcomment/NewCommentHandler.java" afterDir="false" />
@@ -37,33 +38,33 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="8" />
-          <entry key="java" value="35" />
-          <entry key="xml" value="1" />
+          <entry key="class" value="9" />
+          <entry key="java" value="36" />
+          <entry key="xml" value="2" />
           <entry key="yml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="8" />
-          <entry key="JAVA" value="35" />
-          <entry key="XML" value="1" />
+          <entry key="CLASS" value="9" />
+          <entry key="JAVA" value="36" />
+          <entry key="XML" value="2" />
           <entry key="YAML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="46" />
-          <entry key="java" value="5423" />
-          <entry key="xml" value="13" />
+          <entry key="java" value="6821" />
+          <entry key="xml" value="15" />
           <entry key="yml" value="61" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5423" />
+          <entry key="JAVA" value="6821" />
           <entry key="PLAIN_TEXT" value="46" />
-          <entry key="XML" value="13" />
+          <entry key="XML" value="15" />
           <entry key="YAML" value="61" />
         </counts>
       </usages-collector>
@@ -71,11 +72,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/newcomment/NewCommentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="33" column="59" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
+            <state relative-caret-position="370">
+              <caret line="25" column="48" lean-forward="true" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -83,14 +84,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/newcomment/NewCommentHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="45" column="37" selection-end-line="94" />
+            <state relative-caret-position="203">
+              <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/commons-lang/commons-lang/2.6/commons-lang-2.6.jar!/org/apache/commons/lang/exception/ExceptionUtils.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="444" column="25" selection-start-line="444" selection-start-column="25" selection-end-line="444" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
             </state>
           </provider>
         </entry>
@@ -98,8 +117,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/connector/couchbase/CouchbaseConnector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
+            <state relative-caret-position="235">
+              <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -108,33 +127,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/newcomment/NewCommentConfiguration.java">
+        <entry file="jar://$MAVEN_REPOSITORY$/io/reactivex/rxjava/1.3.8/rxjava-1.3.8-sources.jar!/rx/Observable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#245#246#0" expanded="true" />
-                <element signature="e#285#286#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/couchbase/client/java-client/2.7.2/java-client-2.7.2.jar!/com/couchbase/client/java/Bucket.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1755">
-              <caret line="150" column="30" selection-start-line="150" selection-start-column="30" selection-end-line="150" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/com/couchbase/client/java-client/2.7.2/java-client-2.7.2.jar!/com/couchbase/client/java/document/json/JsonArray.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+            <state relative-caret-position="318">
+              <caret line="9247" column="31" selection-start-line="9247" selection-start-column="31" selection-end-line="9247" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -169,8 +165,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/newcomment/NewCommentStream.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="345">
+              <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -211,7 +207,6 @@
         <option value="$PROJECT_DIR$/src/main/java/models/DeleteCommentModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/UpvoteDownvoteCommentModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/EditCommentModel.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/connector/couchbase/CouchbaseContext.java" />
         <option value="$PROJECT_DIR$/src/main/java/utils/StringUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/streams/NewCommentStream.java" />
@@ -225,10 +220,11 @@
         <option value="$PROJECT_DIR$/src/main/java/NewComment/NewCommentController.java" />
         <option value="$PROJECT_DIR$/src/main/java/NewComment/NewCommentConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/Application.java" />
-        <option value="$PROJECT_DIR$/src/main/java/newcomment/NewCommentStream.java" />
         <option value="$PROJECT_DIR$/src/main/java/connector/couchbase/CouchbaseConnector.java" />
-        <option value="$PROJECT_DIR$/src/main/java/newcomment/NewCommentController.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/newcomment/NewCommentHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/newcomment/NewCommentStream.java" />
+        <option value="$PROJECT_DIR$/src/main/java/newcomment/NewCommentController.java" />
       </list>
     </option>
   </component>
@@ -324,7 +320,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545812199203" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545816302544" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -399,7 +395,7 @@
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24175824" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24175824" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -408,7 +404,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32959184" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32959184" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -452,13 +448,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/reactivex/rxjava/1.3.8/rxjava-1.3.8-sources.jar!/rx/Observable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="7719" column="35" selection-start-line="7719" selection-start-column="35" selection-end-line="7719" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -531,13 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.0.8.RELEASE/spring-context-5.0.8.RELEASE.jar!/org/springframework/stereotype/Controller.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -583,16 +565,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/connector/couchbase/CouchbaseConnector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -646,20 +618,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/newcomment/NewCommentStream.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/io/reactivex/rxjava/1.3.8/rxjava-1.3.8-sources.jar!/rx/Observable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="318">
+          <caret line="9247" column="31" selection-start-line="9247" selection-start-column="31" selection-end-line="9247" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/connector/couchbase/CouchbaseConnector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/newcomment/NewCommentController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/commons-lang/commons-lang/2.6/commons-lang-2.6.jar!/org/apache/commons/lang/exception/ExceptionUtils.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="33" column="59" selection-start-line="33" selection-start-column="59" selection-end-line="33" selection-end-column="59" />
+        <state relative-caret-position="210">
+          <caret line="444" column="25" selection-start-line="444" selection-start-column="25" selection-end-line="444" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/newcomment/NewCommentStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -668,8 +661,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/newcomment/NewCommentHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="45" column="37" selection-end-line="94" />
+        <state relative-caret-position="203">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/newcomment/NewCommentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="25" column="48" lean-forward="true" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

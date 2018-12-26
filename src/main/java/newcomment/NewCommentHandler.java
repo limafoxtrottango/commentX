@@ -1,94 +1,71 @@
 package newcomment;
 
-import com.couchbase.client.core.time.Delay;
-import com.couchbase.client.java.Bucket;
 import com.couchbase.client.java.document.RawJsonDocument;
 import com.couchbase.client.java.document.json.JsonArray;
 import com.couchbase.client.java.document.json.JsonObject;
-import com.couchbase.client.java.error.CASMismatchException;
-import com.couchbase.client.java.util.retry.RetryBuilder;
+import com.couchbase.client.java.query.AsyncN1qlQueryResult;
 import connector.couchbase.CouchbaseConnector;
 import org.springframework.beans.factory.annotation.Autowired;
 import rx.Observable;
-
-import java.util.concurrent.TimeUnit;
 
 public class NewCommentHandler {
 
   @Autowired CouchbaseConnector couchbaseConnector;
 
-  @Autowired Bucket bucket;
+  public Observable<?> insertNewComment(final NewCommentStream newComment) {
+
+    JsonObject jsonObject =
+        JsonObject.create()
+            .put("id", newComment.getId())
+            .put("rootCommentId", newComment.getRootCommentId())
+            .put("pageURIHash", newComment.getPageURIHash())
+            .put("parentId", newComment.getParentId())
+            .put("content", newComment.getContent())
+            .put("children", JsonArray.empty());
+
+    if (jsonObject.get("parentId") == null) return insertNewRootComment(jsonObject);
+
+    return insertNewChildComment(jsonObject);
+  }
 
   /**
-   * Persist a new comment to Couchbase
+   * Inserts a new root comment
    *
-   * @param comment
+   * @param jsonObject
    * @return
    */
-  public Observable<RawJsonDocument> persistComment(final NewCommentStream comment) {
+  public Observable<RawJsonDocument> insertNewRootComment(final JsonObject jsonObject) {
 
-    JsonObject jsonObject = JsonObject.create();
-    jsonObject.put("id", comment.getId());
-    jsonObject.put("pageURIHash", comment.getPageURIHash());
-    jsonObject.put("parentId", comment.getParentId());
-    jsonObject.put("content", comment.getContent());
-    jsonObject.put("children", JsonArray.empty());
+    return Observable.just(jsonObject)
+        .flatMap(a -> couchbaseConnector.insertDocument(a.get("id").toString(), a.toString()));
+  }
 
-    // Check if it is a root comment
-    if (comment.getParentId() == null) {
-      // create a new top-level JSON
-      return couchbaseConnector.insertDocument(comment.getId(), jsonObject.toString());
-    } else {
-      String query =
-          "UPDATE default d USE KEYS \""
-              + comment.getRootCommentId()
-              + "\" SET d.children = CASE WHEN d.id == \""
-              + comment.getParentId()
-              + "\" THEN ARRAY_APPEND(IFMISSINGORNULL(d.children,[]),"
-              + jsonObject.toString()
-              + ") ELSE d.children END, p.children = ARRAY_APPEND(IFMISSINGORNULL(p.children,[]),"
-              + jsonObject.toString()
-              + ") FOR p WITHIN d.children WHEN p.id = \""
-              + comment.getParentId()
-              + "\" END";
+  /**
+   * Inserts a new child comment
+   *
+   * @param jsonObject
+   */
+  public Observable<AsyncN1qlQueryResult> insertNewChildComment(final JsonObject jsonObject) {
 
-      System.out.println(query);
-    }
+    return Observable.just(jsonObject)
+        .flatMap(
+            a -> {
+              String query =
+                  "UPDATE default d USE KEYS \""
+                      + a.get("rootCommentId")
+                      + "\" SET d.children = CASE WHEN d.id == \""
+                      + a.get("parentId")
+                      + "\" THEN ARRAY_APPEND(IFMISSINGORNULL(d.children,[]),"
+                      + a.toString()
+                      + ") ELSE d.children END, p.children = ARRAY_APPEND(IFMISSINGORNULL(p.children,[]),"
+                      + a.toString()
+                      + ") FOR p WITHIN d.children WHEN p.id = \""
+                      + a.get("parentId")
+                      + "\" END";
 
-    //    String query =
-    //        "UPDATE default d use keys \"" + comment.getRootCommentId()
-    //            + "\" SET p.level4_Attr = “test” FOR p WITHIN d.children WHEN p.id = \"" +
-    // comment.getId() + "\" END";
-    //
-    //    // mutate the parent document
-    //    if (!(comment.getParentContent() == null)) {
-    //      System.out.println("Updating parent");
-    //      bucket
-    //          .async()
-    //          .get(comment.getParentId())
-    //          .doOnNext(
-    //              a -> {
-    //                JsonArray array = a.content().getArray("childrenIds");
-    //
-    //                if (array != null) {
-    //                  array.add(comment.getId());
-    //                  a.content().put("childrenIds", array);
-    //                } else {
-    //                  a.content().put("childrenIds", JsonArray.create().add(comment.getId()));
-    //                }
-    //              })
-    //          .flatMap(a -> bucket.async().replace(a))
-    //          .retryWhen(
-    //              RetryBuilder.anyOf(CASMismatchException.class)
-    //                  .delay(Delay.fixed(1, TimeUnit.SECONDS))
-    //                  .once()
-    //                  .build())
-    //          .subscribe();
-    //    }
-    //
-    //    System.out.println("Inserting new documents");
+              System.out.println("Query is: " + query);
 
-    // return couchbaseConnector.insertDocument(comment.getId(), comment);
-    return null;
+              return couchbaseConnector.runAsyncN1QlQuery(query);
+            });
   }
 }

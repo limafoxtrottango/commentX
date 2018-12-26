@@ -15,13 +15,11 @@ public class NewCommentStream {
 
     }
 
-    private String pageURI;
-    private String pageURIHash;
-    private String id;
+    //these four fields are sent by the client
     private String content;
-    private String parentContent;
+    private String id;
+    private String pageURIHash;
     private String parentId;
-    private String rootComment;
     private String rootCommentId;
     private List<String> children;
 }
