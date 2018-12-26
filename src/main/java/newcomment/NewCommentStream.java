@@ -21,5 +21,7 @@ public class NewCommentStream {
     private String content;
     private String parentContent;
     private String parentId;
-    private List<String> childrenIds;
+    private String rootComment;
+    private String rootCommentId;
+    private List<String> children;
 }

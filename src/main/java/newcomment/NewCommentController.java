@@ -31,6 +31,7 @@ public class NewCommentController {
                     .parentContent(a.getParentContent())
                     .pageURIHash(StringUtils.getCRC32Hash(a.getPageURI()))
                     .content(a.getContent())
+                        .rootCommentId(a.getRootCommentId())
                     .id(StringUtils.getCRC32Hash(a.getContent()))
                     .build();
               } else {
@@ -40,6 +41,7 @@ public class NewCommentController {
                     .pageURIHash(StringUtils.getCRC32Hash(a.getPageURI()))
                     .content(a.getContent())
                     .id(StringUtils.getCRC32Hash(a.getContent()))
+                        .rootCommentId(a.getRootCommentId())
                     .build();
               }
             })
