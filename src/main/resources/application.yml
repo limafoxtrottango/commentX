@@ -9,6 +9,12 @@ server:
     context-path: /v1
   port: 8119
 
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
 commentx:
   couchbase:
     bootstrap-hosts:
