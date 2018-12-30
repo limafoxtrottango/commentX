@@ -3,6 +3,7 @@ package fetchcomment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,26 +16,48 @@ import java.util.List;
 @RestController
 public class FetchPageCommentsController {
 
-  @Autowired FetchPageCommentsHandler fetchPageCommentsHandler;
+    @Autowired
+    FetchPageCommentsHandler fetchPageCommentsHandler;
 
-  @PostMapping(path = "/fetchComments")
-  public DeferredResult<ResponseEntity<?>> fetchComments(
-      @RequestBody FetchPageCommentsStream fetchPageCommentsStream) {
+    @CrossOrigin
+    @PostMapping(path = "/fetchComments", produces = "application/json")
+    public DeferredResult<ResponseEntity<String>> fetchComments(
+            @RequestBody FetchPageCommentsStream fetchPageCommentsStream) {
 
-    DeferredResult dr = new DeferredResult();
+        DeferredResult dr = new DeferredResult();
 
-    List<String> comments = new ArrayList<>();
+        List<String> comments = new ArrayList<>();
 
-    Observable.just(fetchPageCommentsStream)
-        .flatMap(a -> fetchPageCommentsHandler.fetchComments(a))
-        .flatMap(results -> results.rows())
-        .map(a -> a.value())
-        .subscribe(a -> comments.add(a.toString()));
+        Observable.just(fetchPageCommentsStream)
+                .flatMap(a -> fetchPageCommentsHandler.fetchComments(a))
+                .flatMap(results -> results.rows())
+                .map(a -> {
+                    System.out.println("Hello hello" + a.value());
+                    return a.value();
+                })
+                .toBlocking()
+                .forEach(a -> {
+                    comments.add(a.toString().substring(11,a.toString().length()-1));
+                });
 
-    ResponseEntity<FetchPageCommentsResponse> re =
-        ResponseEntity.status(HttpStatus.OK)
-            .body(FetchPageCommentsResponse.builder().comments(comments).build());
-    dr.setResult(re);
-    return dr;
-  }
+
+        System.out.println("The response is: " + comments);
+
+        //create the json
+        String res = "";
+        for(String comment : comments) {
+            res += comment + ",";
+        }
+        res = res.substring(0,res.length()-1);
+        System.out.println("The result is: " + res);
+        String res2 = "[" + res + "]";
+
+        ResponseEntity<String> re =
+                ResponseEntity.status(HttpStatus.OK)
+                        .body(res2);
+
+
+        dr.setResult(re);
+        return dr;
+    }
 }

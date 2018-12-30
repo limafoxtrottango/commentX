@@ -21,6 +21,8 @@ public class FetchPageCommentsMinion {
 
     String query = "SELECT * from default WHERE pageURIHash = \"" + pageURIHash + "\"";
 
+    System.out.println("The query is: " + query);
+
     N1qlParams queryParams =
         N1qlParams.build().adhoc(false).consistency(ScanConsistency.REQUEST_PLUS);
     N1qlQuery n1qlQuery = N1qlQuery.simple(query, queryParams);

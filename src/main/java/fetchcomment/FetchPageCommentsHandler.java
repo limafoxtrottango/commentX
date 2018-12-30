@@ -10,9 +10,11 @@ public class FetchPageCommentsHandler {
 
   public Observable<AsyncN1qlQueryResult> fetchComments(
       final FetchPageCommentsStream fetchPageCommentsStream) {
+    System.out.println("Inside now");
     return Observable.just(fetchPageCommentsStream)
         .map(a -> fetchPageCommentsStream.getPageURI())
         .map(a -> fetchPageCommentsMinion.getPageURIHash(a))
         .flatMap(a -> fetchPageCommentsMinion.fetchPageComments(a));
   }
 }
+
